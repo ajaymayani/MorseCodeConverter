@@ -23,7 +23,6 @@ public class MainActivity extends AppCompatActivity {
     TextView tvOutput;
     char[] letters;
     String[] morse_code;
-    String except_letter;
     String action;
     ImageView ivCopy;
 
@@ -32,7 +31,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        letters = new char[]{'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '.', ',', '?', '@', '!', '&', '(', ')', '=', '+', '/', ':', '\'', '\"', ' '};
+        letters = new char[]{'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o',
+                'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '1', '2', '3', '4', '5', '6', '7', '8', '9',
+                '0', '.', ',', '?', '@', '!', '&', '(', ')', '=', '+', '/', ':', '\'', '\"', ' '};
+
         morse_code = new String[]{".-", "-...", "-.-.", "-..", ".",
                 "..-.", "--.", "....", "..", ".---",
                 "-.-", ".-..", "--", "-.", "---",
@@ -44,8 +46,6 @@ public class MainActivity extends AppCompatActivity {
                 "--..--", "..--..", ".--.-.", "-.-.--",
                 ".-...", "-.--.", "-.--.-", "-...-",
                 ".-.-.", "-..-.", "---...", ".----.", ".-..-.", "/"};
-
-        except_letter = "#$<`~[*]{}%^;>";
 
         tilText = findViewById(R.id.tilText);
         tvOutput = findViewById(R.id.tvOutput);
@@ -94,6 +94,7 @@ public class MainActivity extends AppCompatActivity {
 
                 @Override
                 public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
                     tvOutput.setText(morseCodeToEnglishText(letters, morse_code, charSequence.toString()));
                 }
 
